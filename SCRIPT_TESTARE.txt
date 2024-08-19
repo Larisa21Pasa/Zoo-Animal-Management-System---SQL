@@ -1,6 +1,6 @@
 
 ------------------------------------------------------SELECT------------------------------------------------------------
-                            -------------EXEMPLE SELECT CU ECHIJOIN SI ALTE CERINTE DE BAZA------------------
+                            -------------EXEMPLE SELECT CU ECHIJOIN SI ALTE CERINTE DE BAZA------------------ 
                            
 --SELECTARE ECHIJOIN PENTRU A GASI ANIMALELE CARE LOCUIESC INTR-UN ANUMIT TARC
 --( ALTERNAVIV, ANIMALELE CARE SUNT DE UN ANUMIT FEL E5TC)
