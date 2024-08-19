@@ -2,7 +2,7 @@
 Project for Managing and Tracking Animals in a Zoo Environment
 This project is designed to deepen understanding of relational database concepts using SQL Oracle. It focuses on the following technical aspects:
 
-# Entity-Relationship (ER) Model
+## Entity-Relationship (ER) Model
 Database Structure: The database is structured using an ER model that represents key entities such as animals, enclosures, and veterinary records, along with their relationships.
 # Normalization
 Normalized Schema: The database schema is normalized to eliminate redundancy and ensure data integrity across multiple tables.
