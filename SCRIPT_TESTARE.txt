@@ -1,0 +1,120 @@
+
+------------------------------------------------------SELECT------------------------------------------------------------
+                            -------------EXEMPLE SELECT CU ECHIJOIN SI ALTE CERINTE DE BAZA------------------
+                           
+--SELECTARE ECHIJOIN PENTRU A GASI ANIMALELE CARE LOCUIESC INTR-UN ANUMIT TARC
+--( ALTERNAVIV, ANIMALELE CARE SUNT DE UN ANUMIT FEL E5TC)
+select animals.id_animals, animal_info.name
+from animals, animal_info
+where animals.id_animals =animal_info.id_animals
+and animals.id_animal_pen =1
+order by animals.id_animals;
+
+---SELECTARE ANIMAL CU UN ANUMIT ID SI IDENTIFICARE TIP 
+select animals.id_animals, animal_type.type_animal 
+from animals, animal_type 
+where animals.id_animal_type=animal_type.id_animal_type 
+and  animals.id_animals=2;
+
+--SELECTARE ECHIJOIN PENTRU INFORMATII DIN MAI MULTE TABELE
+select DISTINCT  animals.id_animals, animal_info.name, animal_type.type_animal, animal_info.birth_date
+from animals,animal_info,animal_type 
+where  animals.id_animals= animal_info.id_animals 
+and animals.id_animal_type=animal_type.id_animal_type
+order by animals.id_animals;
+
+--ECHIJOIN CU CONDITIE PE LITERA FINALA A NUMELOR
+select animals.id_animals,animal_info.name,animal_type.type_animal from animals,animal_info,animal_type 
+where  animals.id_animals= animal_info.id_animals 
+and animals.id_animal_type=animal_type.id_animal_type
+and regexp_like(animal_info.name,'s');
+
+--ECHIJOIN CU AFISARE A TIPURILOR ANIMALELOR PE BAZA ID-URILOR DIN TABELA ANIMALS
+select animals.id_animals, animal_type.type_animal 
+from animals, animal_type 
+where animals.id_animal_type=animal_type.id_animal_type;
+
+--SELECTARE ANIMALE CARE AU NUME CARE INCEP CU O ANUMITA LITERA
+Select name from animal_info where name like '%E%';
+
+--ECHIJOIN CU SELECTARE PE BAZA TIPULUI DE DIETA (EXEMPLU PE OMNIVOR)
+select distinct animal_info.id_animals, animal_info.name 
+from animal_info, diet
+ where  animal_info.id_animals=diet.id_animals 
+and  diet.diet_type = 'Omnivor' 
+order by animal_info.id_animals;
+
+                        -------------END EXEMPLE SELECT CU ECHIJOIN SI ALTE CERINTE DE BAZA------------------
+                        
+                            -------------EXEMPLE SELECT CU DATE CALENDARISTICE------------------
+                            
+--AFISARE DATE DESPRE OPERATII DIN INREGISTRARIELE DIN ANUL 2022.
+--SE REALIZEAZA O LEGARE A TABELELOR PT CA REZULTATUL SA FIE MAI INTUITIV (SE ADAUGA NUMELE ANIMALULUI CARUIA SE SELECTEAZA FISA)
+select animal_info.name , medical_info.surgery, medical_info.data_registration 
+from animal_info, medical_info
+where animal_info.id_animals=medical_info.id_animals
+and extract(year from medical_info.data_registration) = 2022; 
+
+
+--SAU LA FEL, DOAR CA AVAND DATA EXACTA
+select animal_info.name , medical_info.surgery, medical_info.data_registration 
+from animal_info, medical_info
+where animal_info.id_animals=medical_info.id_animals
+and medical_info.data_registration > TO_DATE('2022-01-01', 'yyyy-mm-dd');
+
+--SELECTARE ANIMALE CARE S AU NASCUT INAINTE/ DUPA DATA CERUT
+select  animal_info.name, birth_date from animal_info WHERE birth_date > TO_DATE('2017-01-01', 'yyyy-mm-dd');
+select  animal_info.name, birth_date from animal_info WHERE birth_date > TO_DATE('2017-11-25', 'yyyy-mm-dd');
+
+select animal_info.id_animals from animal_info where extract(year from animal_info.birth_date) =2010;
+
+                            -------------END EXEMPLE SELECT CU DATE CALENDARISTICE------------------
+                            
+------------------------------------------------------END SELECT ------------------------------------------------------------
+
+------------------------------------------------------UPDATE ------------------------------------------------------------
+--CREARE CORP NOU PENTRU PAIANJENI SI  MUTAREA UNUIA IN ACEL CORP
+INSERT INTO animal_pen VALUES (9,'PEN Arachnids B');
+update animals set animals.id_animal_pen = 9
+where animals.id_animals = 4;
+
+--UPDATE ASUPRA TIPULUI LA ANIMALUL CU ID = X (folosire -> S-A GRESIT LA INREGISTRARE TIPUL SI CU UPDATE CORECTEZ)
+update animals set animals.id_animal_type = 3
+where animals.id_animals = 4;
+------------------------------------------------------END UPDATE ------------------------------------------------------------
+
+
+------------------------------------------------------STERGERE ------------------------------------------------------------
+--STERGERE ANIMALE CARE SUNT ERBIVORE
+delete from diet
+where diet.id_diet in (select diet.id_diet from diet where diet.diet_type='Erbivor');
+
+
+--STERGERE ALIMENT CARE INCEPE CU H (HONEY, CONFORM SCRIPTULUI DE INSERARE)
+delete from food
+where food.food_type in (select food.food_type from food where food.food_type like '%h%');
+
+--STERGERE DIN REGISTRUL MEDICAL ANIMALELE NASCUTE IN 2010
+delete from medical_info
+where extract(year from medical_info.birth_date) =2010;
+------------------------------------------------------END STERGERE ------------------------------------------------------------
+
+
+------------------------------------------------------INVALIDARE ------------------------------------------------------------
+
+--INVALIDARE REGEX
+INSERT INTO animal_pen VALUES (1,'PEN 10');
+INSERT INTO animal_pen VALUES (1,'PEN_10');
+
+--INVALIDARE CONSTRANGERE CHECK
+INSERT INTO animal_type VALUES (6,'Rasa_Pisiceasca');
+
+--INVALIDARE  RELATII LOGICE CU  PRIMARY KEY PENTRU ANIMAL_TYPE SI ANIMLA_PEN INEXISTENTE
+INSERT INTO animals VALUES (10,1000,4);
+INSERT INTO animals VALUES (10,3,1000);
+
+INSERT INTO food VALUES (11,'something with  { braces }');
+insert into diet values(6,4,6,'OMNIVORE',10);
+
+------------------------------------------------------END INVALIDARE ------------------------------------------------------------
+

@@ -1,0 +1,150 @@
+
+
+
+------------------------------------------------------INSERT------------------------------------------------------------
+----------------------ANIMAL PEN------------------
+
+SELECT * FROM ANIMAL_PEN;
+ -- ELEMENTE: ID ~ NAME_PEN
+INSERT INTO animal_pen (Name_Pen) VALUES ('PEN Arachnids');
+INSERT INTO animal_pen (Name_Pen) VALUES ('PEN Bird');
+INSERT INTO animal_pen (Name_Pen) VALUES ('PEN Canine');
+INSERT INTO animal_pen (Name_Pen) VALUES ('PEN Fish');
+INSERT INTO animal_pen (Name_Pen) VALUES ('PEN Feline');
+INSERT INTO animal_pen (Name_Pen) VALUES ('PEN Rodent');
+INSERT INTO animal_pen (Name_Pen) VALUES ('PEN Insect');
+INSERT INTO animal_pen (Name_Pen) VALUES ('PEN Reptiles');
+
+
+
+
+
+----------------------ANIMAL TYPE------------------
+SELECT * FROM animal_type;
+-- ELEMENTE : ID ~ TYPE_ANIMAL
+INSERT INTO animal_type (Type_Animal) VALUES ('Arachnids');
+INSERT INTO animal_type (Type_Animal) VALUES ('Bird');
+INSERT INTO animal_type (Type_Animal) VALUES ('Canine');
+INSERT INTO animal_type (Type_Animal) VALUES ('Fish');
+INSERT INTO animal_type (Type_Animal) VALUES ('Feline');
+INSERT INTO animal_type (Type_Animal) VALUES ('Rodent');
+INSERT INTO animal_type (Type_Animal) VALUES ('Insect');
+INSERT INTO animal_type (Type_Animal) VALUES ('Reptiles'); 
+
+
+
+
+
+
+----------------------ANIMALS------------------
+SELECT * FROM animals;
+
+--ELEMENTE : ID ~ ID ANIMAL TYPE ~ ID ANIMAL PEN
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen) VALUES (3,3);
+INSERT INTO animals( ID_Animal_Type,ID_Animal_Pen) VALUES (8,8);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen)VALUES (4,4);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen)VALUES (1,1);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen)VALUES (5,3);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen)VALUES (5,5);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen) VALUES (1,1);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen)VALUES (1,1);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen)VALUES (2,2);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen) VALUES (3,3);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen)VALUES (5,5);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen)VALUES (1,1);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen)VALUES (1,1);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen)VALUES (2,2);
+INSERT INTO animals (ID_Animal_Type,ID_Animal_Pen) VALUES (3,3);
+
+
+
+---------------------- ANIMAL_INFO------------------
+SELECT * FROM animal_info;
+
+--ELEMENTE: ID ANIMALS ~ NAME ~ BIRTH ~ GENDER
+insert into animal_info (Name,Birth_Date,Gender) values ('Elias',TO_DATE('2021-11-25', 'yyyy-mm-dd'),'Male');
+insert into animal_info (Name,Birth_Date,Gender) values ('Alla', TO_DATE('2015-02-3', 'yyyy-mm-dd'),'Male');
+insert into animal_info (Name,Birth_Date,Gender) values ('Enob',TO_DATE('2010-08-3', 'yyyy-mm-dd'),'Female');
+insert into animal_info (Name,Birth_Date,Gender) values ('Cally',TO_DATE('2017-09-4', 'yyyy-mm-dd'),'Female');
+insert into animal_info (Name,Birth_Date,Gender) values ('Callynoe',TO_DATE('2017-09-4', 'yyyy-mm-dd'),'Male');
+insert into animal_info (Name,Birth_Date,Gender) values ('Liam',TO_DATE('2001-8-13', 'yyyy-mm-dd'),'Male');
+insert into animal_info (Name,Birth_Date,Gender) values ('Liam', TO_DATE('2015-07-10', 'yyyy-mm-dd'),'Male');
+insert into animal_info (Name,Birth_Date,Gender) values ('Charlotte',TO_DATE('2010-08-3', 'yyyy-mm-dd'),'Female');
+insert into animal_info (Name,Birth_Date,Gender) values ('Oliver',TO_DATE('2017-09-4', 'yyyy-mm-dd'),'Female');
+insert into animal_info (Name,Birth_Date,Gender) values ('Elijah',TO_DATE('2017-09-4', 'yyyy-mm-dd'),'Male');
+insert into animal_info (Name,Birth_Date,Gender) values ('Henry',TO_DATE('2012-4-24', 'yyyy-mm-dd'),'Male');
+insert into animal_info (Name,Birth_Date,Gender) values ('Mia', TO_DATE('2016-02-3', 'yyyy-mm-dd'),'Male');
+insert into animal_info (Name,Birth_Date,Gender) values ('Evelyn',TO_DATE('2010-08-3', 'yyyy-mm-dd'),'Female');
+insert into animal_info (Name,Birth_Date,Gender) values ('Calios',TO_DATE('2017-10-10', 'yyyy-mm-dd'),'Female');
+insert into animal_info (Name,Birth_Date,Gender) values ('Balla',TO_DATE('2017-3-4', 'yyyy-mm-dd'),'Male');
+
+----------------------MEDICAL INFO------------------
+
+
+INSERT INTO medical_info (ID_Animals, Data_Registration, Birth_Date,Children,Surgery,Medication) VALUES (1,TO_DATE('2022-11-25', 'yyyy-mm-dd'), TO_DATE('2021-11-25', 'yyyy-mm-dd'),'No', 'No surgery yet','Paracetamol');
+
+INSERT INTO medical_info (ID_Animals, Data_Registration, Birth_Date,Children,Surgery,Medication) VALUES (2,TO_DATE('2022-10-19', 'yyyy-mm-dd'), TO_DATE('2015-02-3', 'yyyy-mm-dd'),'Yes', 'No surgery yet','E Vitamin');
+
+INSERT INTO medical_info (ID_Animals, Data_Registration, Birth_Date,Children,Surgery,Medication) VALUES (3,TO_DATE('2022-9-9', 'yyyy-mm-dd'), TO_DATE('2010-08-3', 'yyyy-mm-dd'),'Yes', 'Unknown','C Vitamin');
+
+INSERT INTO medical_info (ID_Animals, Data_Registration, Birth_Date,Children,Surgery,Medication) VALUES (4,TO_DATE('2022-1-6', 'yyyy-mm-dd'),TO_DATE('2017-09-4', 'yyyy-mm-dd'),'Yes', 'No surgery yet','D Vitamin');
+
+
+INSERT INTO medical_info (ID_Animals, Data_Registration, Birth_Date,Children,Surgery,Medication) VALUES (5,TO_DATE('2021-10-23', 'yyyy-mm-dd'), TO_DATE('2017-09-4', 'yyyy-mm-dd'),'No', 'Pif surgery','Immunosuppressive');
+INSERT INTO medical_info (ID_Animals, Data_Registration, Birth_Date,Children,Surgery,Medication) VALUES (5,TO_DATE('2021-9-19', 'yyyy-mm-dd'), TO_DATE('2017-09-4', 'yyyy-mm-dd'),'Yes', 'No surgery yet','E Vitamin');
+
+INSERT INTO medical_info (ID_Animals, Data_Registration, Birth_Date,Children,Surgery,Medication) VALUES (8,TO_DATE('2020-9-1', 'yyyy-mm-dd'), TO_DATE('2010-08-3', 'yyyy-mm-dd'),'Yes', 'Caesarean','None');
+INSERT INTO medical_info (ID_Animals, Data_Registration, Birth_Date,Children,Surgery,Medication) VALUES (8,TO_DATE('2020-1-01', 'yyyy-mm-dd'),TO_DATE('2010-08-3', 'yyyy-mm-dd'),'Yes', 'No surgery yet','D Vitamin');
+
+
+
+select * from medical_info;
+
+---------------------- FOOD------------------
+select * from food;
+
+INSERT INTO food (Food_Type) VALUES ('corn');
+INSERT INTO food (Food_Type) VALUES ('oat');
+INSERT INTO food (Food_Type) VALUES ('meat');
+INSERT INTO food (Food_Type) VALUES ('grass');
+INSERT INTO food (Food_Type) VALUES ('insects');
+INSERT INTO food (Food_Type) VALUES ('leaves');
+INSERT INTO food (Food_Type) VALUES ('frogs');
+INSERT INTO food (Food_Type) VALUES ('grains');
+INSERT INTO food (Food_Type) VALUES ('worms');
+INSERT INTO food (Food_Type) VALUES ('honey');
+
+
+
+---------------------- DIET------------------
+select * from diet;
+select * from animal_type;
+
+--ELEMENTE: ID ~ ID FOOD ~ IDANMALS ~CANTITY
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values (3,1,'Omnivor',5);
+
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(6,2,'Omnivor',10);
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(9,2,'Omnivor',3);
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(7,2,'Omnivor',2);
+
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(6,3,'Omnivor',10);
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(5,3,'Omnivor',10);
+
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(5,4,'Carnivor',5);
+
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(3,5,'Carnivor',10);
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(9,5,'Omnivor',10);
+
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(3,6,'Omnivor',10);
+
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(3,7,'Carnivor',10);
+
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(3,8,'Carnivor',5);
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(9,8,'Carnivor',10);
+
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(1,9,'Erbivor',10);
+insert into diet (ID_Food,ID_Animals,Diet_Type, Cantity ) values(2,9,'Erbivor',10);
+
+
+
+------------------------------------------------------ END INSERT------------------------------------------------------------
