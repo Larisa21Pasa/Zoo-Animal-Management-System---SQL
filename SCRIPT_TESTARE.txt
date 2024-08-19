@@ -4,7 +4,7 @@
                            
 --SELECTARE ECHIJOIN PENTRU A GASI ANIMALELE CARE LOCUIESC INTR-UN ANUMIT TARC
 --( ALTERNAVIV, ANIMALELE CARE SUNT DE UN ANUMIT FEL E5TC)
-select animals.id_animals, animal_info.name
+select animals.id_animals, animal_info.name 
 from animals, animal_info
 where animals.id_animals =animal_info.id_animals
 and animals.id_animal_pen =1
